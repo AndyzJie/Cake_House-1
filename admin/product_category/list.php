@@ -60,7 +60,7 @@ $totalRows = count($categories);
                 <tr>
                   <td><a href="../product/list.php?product_categoryID=<?php echo $row['product_categoryID']; ?>"><?php echo $row['category']; ?></a></td>
                   <td><a href="edit.php?product_categoryID=<?php echo $row['product_categoryID']; ?>" class="btn btn-primary">編輯</a></td>
-                  <td><a href="edit.php?product_categoryID=<?php echo $row['product_categoryID']; ?>" class="btn btn-primary">刪除</a></td>
+                  <td><a href="delete.php?product_categoryID=<?php echo $row['product_categoryID']; ?>" class="btn btn-primary">刪除</a></td>
                 </tr>
               <?php } ?>
               </tbody>
