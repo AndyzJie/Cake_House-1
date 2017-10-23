@@ -1,18 +1,22 @@
-
+<?php
+session_start();
+unset($_SESSION['account']);
+unset($_SESSION['memberID']);
+ ?>
 <!doctype html>
 <!-- Website ../template by freewebsite../templates.com -->
 <html>
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Cake House-會員登出</title>
-	<?php require_once("../../template/files2.php"); ?>
+	<title>Sweet House-會員登出</title>
+	<?php require_once("../template/files2.php"); ?>
 </head>
 <body>
 	<div id="page">
-		<?php require_once("../../template/header.php"); ?>
+		<?php require_once("../template/header2.php"); ?>
 		<div id="body" class="contact">
-			<div class="header">
+			<div class="header2">
 				<div>
 					<h1>會員專區</h1>
 				</div>
@@ -29,7 +33,7 @@
 				</div>
 			</div>
 		</div>
-		<?php require_once("../../template/footer.php"); ?>
+		<?php require_once("../template/footer.php"); ?>
 	</div>
 </body>
 </html>

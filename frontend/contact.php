@@ -1,10 +1,13 @@
+<?php
+session_start();
+ ?>
 <!doctype html>
 <!-- Website template by freewebsitetemplates.com -->
 <html>
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>contact - Cake House</title>
+	<title>contact - Sweet House</title>
 	<?php require_once("template/files.php"); ?>
 </head>
 <body>

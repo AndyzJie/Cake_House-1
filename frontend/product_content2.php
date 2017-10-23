@@ -1,4 +1,5 @@
 <?php
+session_start();
 require('../backend/function/connection.php');
 $sql = $db->query("SELECT * FROM product WHERE ProductID=".$_GET['ProductID']);
 $product = $sql->fetch(PDO::FETCH_ASSOC);
@@ -15,7 +16,7 @@ if(isset($_GET['Existed']) && $_GET['Existed'] == "true"){
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>product - Cake House</title>
+	<title>product - Sweet House</title>
 	<?php require_once("template/files.php"); ?>
 	<link rel="stylesheet" href="../assets/css/cart.css">
 </head>
@@ -46,7 +47,7 @@ if(isset($_GET['Existed']) && $_GET['Existed'] == "true"){
 								<tr>
 									<td width="20%">價格：</td>
 									<td class="price">
-										<?php echo $product['Price']; ?>
+										<?php echo $product['price']; ?>
 										<input type="hidden" name="Price" value="<?php echo $product['Price']; ?>">
 										<input type="hidden" name="ProductID" value="<?php echo $product['ProductID']; ?>">
 									</td>
@@ -57,7 +58,7 @@ if(isset($_GET['Existed']) && $_GET['Existed'] == "true"){
 										<div class="quantity-button">
 											<i class="fa fa-minus" aria-hidden="true"></i>
 										</div>
-										<input type="text" name="Quantity" value="1">
+										<input type="text" name="quantity" value="1">
 										<div class="quantity-button">
 											<i class="fa fa-plus" aria-hidden="true"></i>
 										</div>

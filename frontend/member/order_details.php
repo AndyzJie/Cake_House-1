@@ -1,18 +1,25 @@
-
+<?php
+session_start();
+require_once('../../connection/database.php');
+$sth = $db->query("SELECT * FROM customer_order WHERE customer_orderID =".$_GET['no']);
+$customer_order = $sth->fetch(PDO::FETCH_ASSOC);
+$sth2 = $db->query("SELECT * FROM order_details WHERE customer_orderID =".$_GET['no']);
+$order_details = $sth2->fetchAll(PDO::FETCH_ASSOC);
+ ?>
 <!doctype html>
 <!-- Website ../template by freewebsite../templates.com -->
 <html>
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Cake House-我的訂單</title>
+	<title>Sweet House-我的訂單</title>
 	<?php require_once("../template/files2.php"); ?>
 </head>
 <body>
 	<div id="page">
-		<?php require_once("../template/header.php"); ?>
+		<?php require_once("../template/header2.php"); ?>
 		<div id="body" class="contact">
-			<div class="header">
+			<div class="header2">
 				<div>
 					<h1>會員專區</h1>
 				</div>
@@ -27,7 +34,7 @@
 					<li><a href="my_orders.php">我的訂單</a></li>
 				</ul>
 				<div id="OrderForm">
-					<h1>訂單編號:ST201705311121</h1>
+					<h1>訂單編號:<?php echo $customer_order['orderNO']; ?></h1>
 					<a href="my_orders.php" class="btn btn-default" style="margin-bottom:20px;">回我的訂單</a>
 						<table id="order-tables">
             	<thead>
@@ -40,18 +47,19 @@
             		</tr>
             	</thead>
               <tbody>
-
+								<?php foreach($order_details as $detail){ ?>
                 <tr data-toggle="collapse" data-target="#demo1" class="accordion-toggle">
 									<td data-title="商品圖片">
-											<a href=""><img src="../uploads/products/cheese.jpg" alt="" width="200" height="150"></a>
+											<a href=""><img src="../../uploads/products/<?php echo $detail['picture']; ?>" alt="" width="200" height="150"></a>
 									</td>
 									<td class="cart_description" data-title="商品名稱">
-											<h4><a href=""></a></h4>
+											<h4><a href="product_content.php?productID=<?php echo $detail['productID']; ?>"><?php echo $detail['name']; ?></a></h4>
 									</td>
-                  <td data-title="單價">150</td>
-                  <td data-title="數量">1</td>
-									<td data-title="小計">$NT 150</td>
+                  <td data-title="單價">$NT <?php echo $detail['price']; ?></td>
+                  <td data-title="數量"><?php echo $detail['quantity']; ?></td>
+									<td data-title="小計">$NT <?php echo $detail['quantity'] * $detail['price']; ?></td>
                 </tr>
+							<?php } ?>
 
 
               </tbody>

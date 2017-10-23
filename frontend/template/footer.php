@@ -6,6 +6,6 @@
       <a href="http://freewebsitetemplates.com/go/googleplus/" class="googleplus">googleplus</a>
       <a href="http://pinterest.com/fwtemplates/" class="pinterest">pinterest</a>
     </div>
-    <p>&copy; 2023 Cake House. All Rights Reserved.</p>
+    <p>&copy; 2023 Sweet House. All Rights Reserved.</p>
   </div>
 </div>

@@ -1,18 +1,36 @@
-
+<?php
+session_start();
+require_once("../../connection/database.php");
+$sql= "INSERT INTO member
+					(account,
+					password,
+					phone,
+					createdDate) VALUES (
+					:account,
+					:password,
+					:phone,
+					:createdDate)";
+$sth = $db ->prepare($sql);
+$sth ->bindParam(":account", $_POST['account'], PDO::PARAM_STR);
+$sth ->bindParam("password", $_POST['password'], PDO::PARAM_STR);
+$sth ->bindParam(":phone", $_POST['phone'], PDO::PARAM_STR);
+$sth ->bindParam(":createdDate", $_POST['createdDate'], PDO::PARAM_STR);
+$sth -> execute();
+ ?>
 <!doctype html>
 <!-- Website ../template by freewebsite../templates.com -->
 <html>
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Cake House-會員申請</title>
-	<?php require_once("../../template/files2.php"); ?>
+	<title>Sweet House-會員申請</title>
+	<?php require_once("../template/files2.php"); ?>
 </head>
 <body>
 	<div id="page">
-		<?php require_once("../../template/header.php"); ?>
+		<?php require_once("../template/header2.php"); ?>
 		<div id="body" class="contact">
-			<div class="header">
+			<div class="header2">
 				<div>
 					<h1>會員專區</h1>
 				</div>
@@ -29,7 +47,7 @@
 				</div>
 			</div>
 		</div>
-		<?php require_once("../../template/footer.php"); ?>
+		<?php require_once("../template/footer.php"); ?>
 	</div>
 </body>
 </html>
